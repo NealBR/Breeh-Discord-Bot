@@ -26,8 +26,10 @@ namespace CSharp_Discord_Bot.modules
             Random rnd = new Random();
             int index = rnd.Next(0, Hats.HatList.Length);
             (string Caption, string Filepath) hat = Hats.HatList[index];
+            string workingDirectory = Environment.CurrentDirectory;
+            string resourceDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName + "\\resources\\";
 
-            await Context.Channel.SendFileAsync(hat.Filepath, hat.Caption);
+            await Context.Channel.SendFileAsync(resourceDirectory + hat.Filepath, hat.Caption);
         }
     }
 }
