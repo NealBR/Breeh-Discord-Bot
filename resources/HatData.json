@@ -1,0 +1,85 @@
+{
+  "hats": [
+    {
+      "caption": "Busy",
+      "filename": "alHardHat.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Piratey",
+      "filename": "alPirateHat.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "_**Extra**_ Piraty",
+      "filename": "alPirateHat.Extra.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Spooky",
+      "filename": "alPumpkinHat.3x.png",
+      "enabled": true,
+      "monthFrom": 10,
+      "dayFrom": 1,
+      "monthTo": 10,
+      "dayTo": 31
+    },
+    {
+      "caption": "Merry",
+      "filename": "alSanta.3x.png",
+      "enabled": true,
+      "monthFrom": 12,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Sleepy",
+      "filename": "alSleepy.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Fancy",
+      "filename": "alTopHat.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "_**Extra**_ Fancy",
+      "filename": "alTopHatExtra.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Magical",
+      "filename": "alWizardHat.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    }
+  ]
+}

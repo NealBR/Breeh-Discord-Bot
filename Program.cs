@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using CSharp_Discord_Bot.models;
 using CSharp_Discord_Bot.resources;
 
 using Discord;
@@ -6,7 +7,9 @@ using Discord.Commands;
 using Discord.Interactions;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 using System.Reflection;
+using System.Text.Json;
 
 public class Program
 {
@@ -23,6 +26,20 @@ public class Program
 
     private async Task RunBotAsync()
     {
+        string resourceName = "CSharp_Discord_Bot.resources.HatData.json";
+
+        string json;
+        using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+        using (var reader = new StreamReader(stream))
+        {
+            json = reader.ReadToEnd();
+        }
+
+        HatList hatList = JsonSerializer.Deserialize<HatList>(json);
+
+        DataSingleton dataSingleton = DataSingleton.GetInstance();
+        dataSingleton.hats = hatList;
+
         var config = new DiscordSocketConfig
         {
             GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
