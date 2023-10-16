@@ -20,12 +20,7 @@ namespace CSharp_Discord_Bot.modules
         {
             await ReplyAsync("<:alStare:1162845434264436901>");
         }
-        [Command("breehtest")]
-        public async Task TestExample()
-        {
-            await ReplyAsync("Test Successful");
-        }
-        [Command("alstatus")]
+        [Command("almood")]
         public async Task Status()
         {
             Random rnd = new Random();
