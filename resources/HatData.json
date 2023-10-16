@@ -19,7 +19,7 @@
       "dayTo": 31
     },
     {
-      "caption": "_**Extra**_ Piraty",
+      "caption": "_**Extra**_ Piratey",
       "filename": "alPirateHat.Extra.3x.png",
       "enabled": true,
       "monthFrom": 1,
@@ -76,6 +76,60 @@
       "caption": "Magical",
       "filename": "alWizardHat.3x.png",
       "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "BUSTED",
+      "filename": "alBustedHat.3x.gif",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Stuck in Traffic",
+      "filename": "alTrafficConeHat.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Fishing",
+      "filename": "alFishingHat.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Cooking",
+      "filename": "alChefHat.3x.png",
+      "enabled": true,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Royal",
+      "filename": "alCrownHat1.3x.png",
+      "enabled": false,
+      "monthFrom": 1,
+      "dayFrom": 1,
+      "monthTo": 12,
+      "dayTo": 31
+    },
+    {
+      "caption": "Royal",
+      "filename": "alCrownHat2.3x.png",
+      "enabled": false,
       "monthFrom": 1,
       "dayFrom": 1,
       "monthTo": 12,
