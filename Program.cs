@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CSharp_Discord_Bot.models;
+using CSharp_Discord_Bot.modules;
 using CSharp_Discord_Bot.resources;
 
 using Discord;
@@ -24,21 +25,41 @@ public class Program
     private CommandService _commands;
     private IServiceProvider _services;
 
+    private List<Hat> LoadHats()
+    {
+        const string resourceName = "CSharp_Discord_Bot.resources.HatData.json";
+
+        Console.WriteLine($"Loading Hats...");
+
+        using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
+        using var reader = new StreamReader(stream);
+
+        string json = reader.ReadToEnd();
+
+        var hatList = JsonSerializer.Deserialize<HatList>(json);
+        Console.WriteLine($"Loaded {hatList?.hats?.Count ?? 0} hat(s).");
+        if (hatList == null)
+            return new List<Hat>();
+
+        // Note, with the current logic, if we allow negative weights,
+        // you could technically force one hat to ALWAYS be rolled on a certain day.
+        var validHats = from hat in hatList.hats
+                        where hat.enabled && hat.weight > 0
+                        select hat;
+        Console.WriteLine($"Enabled Hats: {validHats.Count()}.");
+
+        foreach (var hat in validHats)
+            Console.WriteLine($"'{hat.filename}': {hat.weight}.");
+
+        double totalWeight = validHats.Sum((hat) => hat.weight);
+        Console.WriteLine($"Total Weight: {totalWeight}.");
+        return validHats.ToList();
+    }
+
     private async Task RunBotAsync()
     {
-        string resourceName = "CSharp_Discord_Bot.resources.HatData.json";
-
-        string json;
-        using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
-        using (var reader = new StreamReader(stream))
-        {
-            json = reader.ReadToEnd();
-        }
-
-        HatList hatList = JsonSerializer.Deserialize<HatList>(json);
-
         DataSingleton dataSingleton = DataSingleton.GetInstance();
-        dataSingleton.hats = hatList;
+        dataSingleton.hats = LoadHats();
 
         var config = new DiscordSocketConfig
         {

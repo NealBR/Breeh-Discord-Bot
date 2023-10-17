@@ -2,35 +2,20 @@
   "hats": [
     {
       "caption": "Busy",
-      "filename": "alHardHat.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alHardHat.3x.png"
     },
     {
       "caption": "Piratey",
-      "filename": "alPirateHat.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alPirateHat.3x.png"
     },
     {
       "caption": "_**Extra**_ Piratey",
       "filename": "alPirateHat.Extra.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "weight": 0.25
     },
     {
       "caption": "Spooky",
       "filename": "alPumpkinHat.3x.png",
-      "enabled": true,
       "monthFrom": 10,
       "dayFrom": 1,
       "monthTo": 10,
@@ -39,7 +24,6 @@
     {
       "caption": "Merry",
       "filename": "alSanta.3x.png",
-      "enabled": true,
       "monthFrom": 12,
       "dayFrom": 1,
       "monthTo": 12,
@@ -47,93 +31,46 @@
     },
     {
       "caption": "Sleepy",
-      "filename": "alSleepy.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alSleepy.3x.png"
     },
     {
       "caption": "Fancy",
-      "filename": "alTopHat.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alTopHat.3x.png"
     },
     {
       "caption": "_**Extra**_ Fancy",
       "filename": "alTopHat.Extra.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "weight": 0.25
     },
     {
       "caption": "Magical",
-      "filename": "alWizardHat.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alWizardHat.3x.png"
     },
     {
       "caption": "BUSTED",
-      "filename": "alBustedHat.3x.gif",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alBustedHat.3x.gif"
     },
     {
       "caption": "Stuck in Traffic",
-      "filename": "alTrafficConeHat.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alTrafficConeHat.3x.png"
     },
     {
       "caption": "Fishing",
-      "filename": "alFishingHat.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alFishingHat.3x.png"
     },
     {
       "caption": "Cooking",
-      "filename": "alChefHat.3x.png",
-      "enabled": true,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "filename": "alChefHat.3x.png"
     },
     {
       "caption": "Royal",
       "filename": "alCrownHat1.3x.png",
-      "enabled": false,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "weight": 0.001
     },
     {
       "caption": "Royal",
       "filename": "alCrownHat2.3x.png",
-      "enabled": false,
-      "monthFrom": 1,
-      "dayFrom": 1,
-      "monthTo": 12,
-      "dayTo": 31
+      "weight": 0.01
     }
   ]
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -23,29 +23,31 @@ namespace CSharp_Discord_Bot.modules
         [Command("almood")]
         public async Task Status()
         {
-            Random rnd = new Random();
+            Random rnd = new();
             DateTime date = DateTime.Now;
-            HatList hats = DataSingleton.GetInstance().hats;
+            List<Hat> hats = DataSingleton.GetInstance().hats;
 
-            Hat hat = null;
+            IEnumerable<Hat> filteredHats = from hat in hats
+                                            where hat.enabled
+                                               && hat.monthFrom <= date.Month && hat.monthTo >= date.Month
+                                               && hat.dayFrom <= date.Day && hat.dayTo >= date.Day
+                                            select hat;
 
-            while(hat == null)
-            {
-                int index = rnd.Next(0, hats.hats.Count);
-                Hat tempHat = hats.hats[index];
+            double totalWeight = filteredHats.Sum((hat) => hat.weight);
+            double targetWeight = rnd.NextDouble() * totalWeight;
+            //Console.WriteLine($"Rolled a {targetWeight} out of {totalWeight}.");
 
-                if (tempHat.enabled && 
-                    (tempHat.monthFrom <= date.Month && tempHat.monthTo >= date.Month) && 
-                    (tempHat.dayFrom <= date.Day && tempHat.dayTo >= date.Day))
-                {
-                    hat = tempHat;
-                }
-            }
+            double currentWeight = 0;
+            // Increment the currentWeight with the weight of each hat that is encountered,
+            // until we've reached the target weight.
+            Hat selectedHat = filteredHats.First(hat => (currentWeight += hat.weight) >= targetWeight);
+            //Console.WriteLine($"CurrentWeight after selecting: {currentWeight}");
+            //Console.WriteLine($"Selected Hat: '{selectedHat.filename}', weight {selectedHat.weight}.");
 
             string workingDirectory = Environment.CurrentDirectory;
-            string resourceDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName + "\\resources\\";
+            string resourceDirectory = Directory.GetParent(workingDirectory)?.Parent?.Parent?.FullName + "\\resources\\";
 
-            await Context.Channel.SendFileAsync(resourceDirectory + hat.filename, hat.caption);
+            await Context.Channel.SendFileAsync(resourceDirectory + selectedHat.filename, selectedHat.caption);
         }
     }
 }
