@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
+using Discord;
 using Discord.Commands;
+using Discord.WebSocket;
 
 using CSharp_Discord_Bot.models;
-using CSharp_Discord_Bot.resources;
 
 namespace CSharp_Discord_Bot.modules
 {

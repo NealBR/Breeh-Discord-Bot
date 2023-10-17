@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharp_Discord_Bot.models
+﻿namespace CSharp_Discord_Bot.models
 {
     public class Hat
     {
-        public string caption { get; set; }
-        public string filename { get; set; }
+        public string? caption { get; set; }
+        public string? filename { get; set; }
         public bool enabled { get; set; } = true;
         public int monthFrom { get; set; } = 1;
         public int dayFrom { get; set; } = 1;
