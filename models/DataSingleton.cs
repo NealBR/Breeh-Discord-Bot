@@ -25,5 +25,5 @@ public class DataSingleton
     }
 
     // Add your Singleton's methods and properties here.
-    public HatList hats;
+    public List<Hat> hats = new();
 }

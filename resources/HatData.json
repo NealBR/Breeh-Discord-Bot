@@ -25,7 +25,8 @@
       "monthFrom": 1,
       "dayFrom": 1,
       "monthTo": 12,
-      "dayTo": 31
+      "dayTo": 31,
+      "weight": 0.25
     },
     {
       "caption": "Spooky",
@@ -70,7 +71,8 @@
       "monthFrom": 1,
       "dayFrom": 1,
       "monthTo": 12,
-      "dayTo": 31
+      "dayTo": 31,
+      "weight": 0.25
     },
     {
       "caption": "Magical",
@@ -120,20 +122,22 @@
     {
       "caption": "Royal",
       "filename": "alCrownHat1.3x.png",
-      "enabled": false,
+      "enabled": true,
       "monthFrom": 1,
       "dayFrom": 1,
       "monthTo": 12,
-      "dayTo": 31
+      "dayTo": 31,
+      "weight": 0.001
     },
     {
       "caption": "Royal",
       "filename": "alCrownHat2.3x.png",
-      "enabled": false,
+      "enabled": true,
       "monthFrom": 1,
       "dayFrom": 1,
       "monthTo": 12,
-      "dayTo": 31
+      "dayTo": 31,
+      "weight": 0.01
     }
   ]
 }
