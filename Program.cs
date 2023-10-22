@@ -8,7 +8,6 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 
-using CSharp_Discord_Bot.resources;
 using CSharp_Discord_Bot.models.singletons;
 
 public class Program
