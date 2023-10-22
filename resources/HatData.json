@@ -71,6 +71,34 @@
       "caption": "Royal",
       "filename": "alCrownHat2.3x.png",
       "weight": 0.01
+    },
+    {
+      "caption": "Jokester",
+      "filename": "alJesterHat.3x.png"
+    },
+    {
+      "caption": "Elementary",
+      "filename": "alBowlerHat.3x.png"
+    },
+    {
+      "caption": "Evil",
+      "filename": "alDevilHat.3x.png"
+    },
+    {
+      "caption": "Good",
+      "filename": "alHaloHat.3x.png"
+    },
+    {
+      "caption": "Truckin'",
+      "filename": "alTruckinHat.3x.png"
+    },
+    {
+      "caption": "Brain too hot",
+      "filename": "alPropellerHat.3x.png"
+    },
+    {
+      "caption": "Clogged",
+      "filename": "alPlungerHat.3x.png"
     }
   ]
 }

@@ -1,32 +1,35 @@
 ﻿using Discord;
 using Discord.WebSocket;
 
-public class ClientSingleton
+namespace CSharp_Discord_Bot.models.singletons
 {
-    private static ClientSingleton? instance;
-
-    private static DiscordSocketClient? _client;
-
-    // Private constructor to prevent instantiation from other classes.
-    private ClientSingleton() { }
-
-    // Public method to provide access to the Singleton instance.
-    public static ClientSingleton GetInstance()
+    public class ClientSingleton
     {
-        // Check if the instance is null; if it is, create a new instance.
-        if (instance == null)
+        private static ClientSingleton? instance;
+
+        private static DiscordSocketClient? _client;
+
+        // Private constructor to prevent instantiation from other classes.
+        private ClientSingleton() { }
+
+        // Public method to provide access to the Singleton instance.
+        public static ClientSingleton GetInstance()
         {
-            instance = new ClientSingleton();
-
-            var config = new DiscordSocketConfig
+            // Check if the instance is null; if it is, create a new instance.
+            if (instance == null)
             {
-                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
-            };
+                instance = new ClientSingleton();
 
-            _client = new DiscordSocketClient(config);
+                var config = new DiscordSocketConfig
+                {
+                    GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
+                };
+
+                _client = new DiscordSocketClient(config);
+            }
+            return instance;
         }
-        return instance;
-    }
 
-    public DiscordSocketClient client {  get { return _client!; } }
+        public DiscordSocketClient client { get { return _client!; } }
+    }
 }

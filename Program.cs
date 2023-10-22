@@ -8,7 +8,7 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 
-using CSharp_Discord_Bot.resources;
+using CSharp_Discord_Bot.models.singletons;
 
 public class Program
 {
@@ -25,6 +25,8 @@ public class Program
         DataSingleton dataSingleton = DataSingleton.GetInstance();
         clientSingleton = ClientSingleton.GetInstance();
         commandsSingleton = CommandsSingleton.GetInstance();
+        ConfigSingleton configSingleton = ConfigSingleton.GetInstance();
+
 
         _services = new ServiceCollection().AddSingleton(clientSingleton.client).AddSingleton(commandsSingleton.commands).BuildServiceProvider();
 
@@ -33,7 +35,14 @@ public class Program
 
         await commandsSingleton.commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
 
-        await clientSingleton.client.LoginAsync(TokenType.Bot, Secrets.DISCORD_BOT_TOKEN);
+        var secrets = configSingleton.Secrets;
+        if (string.IsNullOrEmpty(secrets.DISCORD_BOT_TOKEN))
+        {
+            Console.WriteLine("Bot token is empty.");
+            return;
+        }
+
+        await clientSingleton.client.LoginAsync(TokenType.Bot, secrets.DISCORD_BOT_TOKEN);
 
         await clientSingleton.client.StartAsync();
         /*

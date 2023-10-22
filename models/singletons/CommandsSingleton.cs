@@ -1,26 +1,29 @@
 ﻿using Discord.Commands;
 
-public class CommandsSingleton
+namespace CSharp_Discord_Bot.models.singletons
 {
-    private static CommandsSingleton? instance;
-
-    private static CommandService? _commands;
-
-    // Private constructor to prevent instantiation from other classes.
-    private CommandsSingleton() { }
-
-    // Public method to provide access to the Singleton instance.
-    public static CommandsSingleton GetInstance()
+    public class CommandsSingleton
     {
-        // Check if the instance is null; if it is, create a new instance.
-        if (instance == null)
+        private static CommandsSingleton? instance;
+
+        private static CommandService? _commands;
+
+        // Private constructor to prevent instantiation from other classes.
+        private CommandsSingleton() { }
+
+        // Public method to provide access to the Singleton instance.
+        public static CommandsSingleton GetInstance()
         {
-            instance = new CommandsSingleton();
+            // Check if the instance is null; if it is, create a new instance.
+            if (instance == null)
+            {
+                instance = new CommandsSingleton();
 
-            _commands = new CommandService();
+                _commands = new CommandService();
+            }
+            return instance;
         }
-        return instance;
-    }
 
-    public CommandService commands { get { return _commands!; } }
+        public CommandService commands { get { return _commands!; } }
+    }
 }
