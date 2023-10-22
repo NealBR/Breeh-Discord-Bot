@@ -9,12 +9,12 @@ namespace CSharp_Discord_Bot.modules
 {
     public class Commands : ModuleBase<SocketCommandContext>
     {
-        [Command("al")]
+        [Command("al", true)]
         public async Task Exists()
         {
             await ReplyAsync("<:alStare:1162845434264436901>");
         }
-        [Command("almood")]
+        [Command("almood", true)]
         public async Task Status()
         {
             if (!IsValidChannel())
