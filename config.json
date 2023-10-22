@@ -1,0 +1,31 @@
+{
+  "Servers": [
+    {
+      "Name": "Breehcord",
+      "ID": 406626534955286528,
+      "ChannelList": {
+        "Mode": "Whitelist",
+        "Values": [
+          {
+            "Description": "Breehcord#almood",
+            "ID": 1163087087562670170
+          }
+        ]
+      }
+    },
+    {
+      "Name": "TestServer",
+      "ID": 1163592839050047508,
+      "ChannelList": {
+        "Mode": "Whitelist",
+        "Values": [
+          {
+            "Description": "TestServer#general",
+            "ID": 1163592839553355838,
+            "DevCommands": true
+          }
+        ]
+      }
+    }
+  ]
+}
