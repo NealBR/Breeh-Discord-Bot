@@ -53,3 +53,8 @@ Dev commands are only available when there is a test channel specified in
 
 Replies with the version as specified in `version.json`. Useful to check which
 version of the bot is running.
+
+# Version
+
+The version is maintained manually. When there are only changes to the hats, we
+increment Patch. If it's bigger changes, we will increment Minor.
