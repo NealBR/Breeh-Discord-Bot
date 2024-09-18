@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CSharp_Discord_Bot.models.singletons
 {
@@ -7,7 +8,8 @@ namespace CSharp_Discord_Bot.models.singletons
     {
         private static DataSingleton? instance;
 
-        private static List<Hat>? _hats;
+        private List<Hat> _sourceHats = new();
+        private List<Hat> _filteredHats = new();
 
         // Private constructor to prevent instantiation from other classes.
         private DataSingleton() { }
@@ -19,13 +21,31 @@ namespace CSharp_Discord_Bot.models.singletons
             if (instance == null)
             {
                 instance = new DataSingleton();
-
-                _hats = instance.LoadHats();
+                instance.LoadHats();
+                instance.CheckHats();
             }
             return instance;
         }
 
-        private List<Hat> LoadHats()
+        private void CheckHats()
+        {
+            Console.WriteLine($"Checking Hats...");
+            string workingDirectory = Environment.CurrentDirectory;
+            string resourceDirectory = Directory.GetParent(workingDirectory)?.Parent?.Parent?.FullName + "\\resources\\";
+            if (_sourceHats != null)
+            {
+                foreach (var hat in _sourceHats)
+                {
+                    if (string.IsNullOrEmpty(hat.filename))
+                        continue;
+                    if (!File.Exists(resourceDirectory + hat.filename))
+                        Console.Error.WriteLine($"File '{hat.filename}' with caption '{hat.caption}' does not exist.");
+                }
+            }
+            Console.WriteLine("Checking done.");
+        }
+
+        private void LoadHats()
         {
             const string resourceName = "CSharp_Discord_Bot.resources.HatData.json";
 
@@ -36,36 +56,37 @@ namespace CSharp_Discord_Bot.models.singletons
             if (stream == null)
             {
                 Console.WriteLine("Failed to load: " + resourceName);
-
-                return new List<Hat>();
+                return;
             }
-            else
-            {
-                using var reader = new StreamReader(stream);
-                string json = reader.ReadToEnd();
-                var hatList = JsonSerializer.Deserialize<HatList>(json);
 
-                Console.WriteLine($"Loaded {hatList?.hats?.Count ?? 0} hat(s).");
+            using var reader = new StreamReader(stream);
 
-                if (hatList == null)
-                    return new List<Hat>();
+            string json = reader.ReadToEnd();
+            var options = new JsonSerializerOptions();
+            options.Converters.Add(new JsonStringEnumConverter());
+            var hatList = JsonSerializer.Deserialize<HatList>(json, options);
 
-                // Note, with the current logic, if we allow negative weights,
-                // you could technically force one hat to ALWAYS be rolled on a certain day.
-                var validHats = from hat in hatList.hats
-                                where hat.enabled && hat.weight > 0
-                                select hat;
-                Console.WriteLine($"Enabled Hats: {validHats.Count()}.");
+            Console.WriteLine($"Loaded {hatList?.hats?.Count ?? 0} hat(s).");
 
-                foreach (var hat in validHats)
-                    Console.WriteLine($"'{hat.filename}': {hat.weight}.");
+            if (hatList?.hats == null) return;
 
-                double totalWeight = validHats.Sum((hat) => hat.weight);
-                Console.WriteLine($"Total Weight: {totalWeight}.");
-                return validHats.ToList();
-            }
+            _sourceHats = hatList.hats;
+
+            // Note, with the current logic, if we allow negative weights in this query,
+            // you could technically force one hat to ALWAYS be rolled on a certain day.
+            var validHats = from hat in hatList.hats
+                            where hat.enabled && hat.weight > 0
+                            select hat;
+            Console.WriteLine($"Enabled Hats: {validHats.Count()}.");
+
+            foreach (var hat in validHats)
+                Console.WriteLine($"'{hat.filename}': {hat.weight}.");
+
+            double totalWeight = validHats.Sum((hat) => hat.weight);
+            Console.WriteLine($"Total Weight: {totalWeight}.");
+            _filteredHats = validHats.ToList();
         }
 
-        public List<Hat> hats { get { return _hats!; } }
+        public List<Hat> hats => _filteredHats;
     }
 }

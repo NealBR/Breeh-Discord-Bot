@@ -16,5 +16,29 @@
         /// </summary>
         /// <value>A positive number representing the rarity of the hat. Defaults to 1.</value>
         public double weight { get; set; } = 1;
+
+        public HatPriority priority { get; set; } = HatPriority.normal;
+
+        public List<HatCondition> conditions { get; set; } = new();
+    }
+
+    public enum HatPriority
+    {
+        normal,
+        top,
+    }
+
+    public class HatCondition
+    {
+        public HatConditionType type { get; set; } = HatConditionType.none;
+
+        public string? value { get; set; }
+    }
+
+    public enum HatConditionType
+    {
+        none,
+        role,
+        user,
     }
 }
