@@ -65,12 +65,12 @@
     {
       "caption": "Royal",
       "filename": "alCrownHat1.3x.png",
-      "weight": 0.001
+      "weight": 0.01
     },
     {
       "caption": "Royal",
       "filename": "alCrownHat2.3x.png",
-      "weight": 0.01
+      "weight": 0.05
     },
     {
       "caption": "Jokester",
@@ -99,6 +99,64 @@
     {
       "caption": "Clogged",
       "filename": "alPlungerHat.3x.png"
+    },
+    {
+      "caption": "Hanging out",
+      "filename": "alSofaHat.3x.png"
+    },
+    {
+      "caption": "Not having any Guests over",
+      "filename": "alTowelHat.3x.png"
+    },
+    {
+      "caption": "Broodin'",
+      "filename": "alChickenHat.3x.png"
+    },
+    {
+      "caption": "Partyin'",
+      "filename": "alPartyHat.3x.png",
+      "priority": "top",
+      "conditions": [
+        {
+          "type": "role",
+          "value": "1286083315991969853",
+          "note": "Test server Test Role 2"
+        },
+        {
+          "type": "role",
+          "value": "1128756296707997807",
+          "note": "Always show this hat if the user has the Breehcord Birthday role"
+        }
+      ]
+    },
+    {
+      "caption": "Moddin'",
+      "enabled": false,
+      "conditions": [
+        {
+          "type": "role",
+          "value": "1284273811054788618",
+          "note": "Test server Test Role 1"
+        },
+        {
+          "type": "role",
+          "value": "408036336574922762",
+          "note": "If the user has the Breehcord Mods role"
+        }
+      ]
+    },
+    {
+      "note": "Example of personal Al",
+      "caption": "The _**One True**_ Wizard",
+      "filename": "alWizardHat.3x.png",
+      "enabled": false,
+      "priority": "top",
+      "conditions": [
+        {
+          "type": "user",
+          "value": "207557020730130433"
+        }
+      ]
     }
   ]
 }

@@ -2,6 +2,6 @@
 {
     public class HatList
     {
-        public List<Hat>? hats { get; set; }
+        public List<Hat> hats { get; set; } = new();
     }
 }
